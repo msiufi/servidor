@@ -66,6 +66,11 @@ exports.actualizarProyecto = async (req, res)=>{
       return res.status(401).json({msg: 'No autorizado'})
     }
     // actualizar
+    proyecto = await Proyecto.findByIdAndUpdate({_id: req.params.id}, {$set : nuevoProyecto}, { new: true});
+
+    res.json({proyecto});
+
+
   } catch (error) {
     console.log(error);
     res.status(500).send('Error en el servidor')
