@@ -27,6 +27,12 @@ auth,
 [
   check('nombre', 'El nombre del proyecto es obligatorio').not().isEmpty()
 ],
-proyectoController.actualizarProyecto)
+proyectoController.actualizarProyecto);
+
+//Eliminar un proyecto
+router.delete('/:id',
+  auth,
+  proyectoController.eliminarProyecto
+)
 
 module.exports = router;
